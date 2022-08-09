@@ -1,0 +1,2 @@
+- react-router 配合react-loadable 实现代码路由级别拆分，减少首页代码体积
+- 或者是通过lazy和Suspense来配合使用 https://zh-hans.reactjs.org/docs/code-splitting.html

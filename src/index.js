@@ -8,12 +8,27 @@
  * 
  * Copyright (c) 2022 by wangzhenggui jianjia.wzg@raycloud.com, All Rights Reserved. 
  */
-import ReactDOM from 'react-dom';
-import { HashRouter } from 'react-router-dom';
-
-ReactDOM.render(
-  <HashRouter>
-    <Router />
-  </HashRouter>,
+import { Suspense, lazy } from 'react';
+import ReactDOM from "react-dom/client";
+import {
+  HashRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+const root = ReactDOM.createRoot(
   document.getElementById("app")
+);
+
+const HomeLazy = lazy(() => import('./pages/Home'))
+const CountLazy = lazy(() => import('./pages/Count'))
+
+root.render(
+  <HashRouter>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/home" element={<HomeLazy />} />
+        <Route path="/count" element={<CountLazy />} />
+      </Routes>
+    </Suspense>
+  </HashRouter>
 );

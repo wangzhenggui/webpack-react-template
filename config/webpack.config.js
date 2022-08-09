@@ -13,17 +13,32 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: ['./src/index.js'], // TODO: 这里的路径是相对于根路径来的
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, '../dist'),
+    filename: '[name].[contenthash].js',
+    chunkFilename: '[name].[contenthash].js'
   },
-  module:{},
+  module: {
+    rules: [{
+      test: /.jsx?$/,
+      use: [
+        {
+          loader: "babel-loader"
+        }
+      ],
+      exclude: /node_modules/
+    }]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'], // 这个不写入jsx,识别不了jsx文件
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: 'public/index.html'
+      filename: 'index.html',
+      template: path.resolve(__dirname, '..', "public/index.html"),
     })
   ],
-  devServer:{}
+  devServer: {}
 }
