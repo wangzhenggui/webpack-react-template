@@ -2,8 +2,8 @@
  * @Author: wangzhenggui jianjia.wzg@raycloud.com
  * @Date: 2022-08-08 16:53:53
  * @LastEditors: wangzhenggui jianjia.wzg@raycloud.com
- * @LastEditTime: 2022-08-08 20:11:30
- * @FilePath: /webpack-react-template/webpack.config.js
+ * @LastEditTime: 2022-08-12 09:54:43
+ * @FilePath: /webpack-react-template/config/webpack.config.js
  * @Description: 
  * 
  * Copyright (c) 2022 by wangzhenggui jianjia.wzg@raycloud.com, All Rights Reserved. 
